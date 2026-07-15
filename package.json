@@ -1,0 +1,14 @@
+{
+  "name": "virtbridge-vibecode-sales-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Embedded Bitrix24 sales funnel dashboard for the VibeCode partner competency pilot",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
