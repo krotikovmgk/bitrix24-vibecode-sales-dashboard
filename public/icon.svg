@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Воронка продаж">
+  <rect width="64" height="64" rx="16" fill="#8be2c2"/>
+  <path d="M13 16h38L37 34v11l-10 5V34L13 16Z" fill="#17233d"/>
+  <path d="M20 16h31l-5.5 7H25.4L20 16Z" fill="#80b9ff"/>
+  <circle cx="48" cy="47" r="8" fill="#ff8f79"/>
+  <path d="M44.5 47h7M48 43.5v7" stroke="#17233d" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
