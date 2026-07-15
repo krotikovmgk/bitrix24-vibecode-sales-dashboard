@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#17233d">
+  <title>Воронка продаж · VirtBridge</title>
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="/icon.svg" alt="" width="44" height="44">
+      <div>
+        <p class="eyebrow">VirtBridge · VibeCode</p>
+        <h1>Дашборд воронки продаж</h1>
+      </div>
+    </div>
+    <div class="user-chip" aria-label="Текущий пользователь">
+      <span class="user-chip__dot"></span>
+      <span id="current-user">Определяем пользователя…</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="filter-panel" aria-labelledby="filter-title">
+      <div>
+        <p class="eyebrow eyebrow--dark">Параметры отчёта</p>
+        <h2 id="filter-title">Создание сделок за период</h2>
+      </div>
+      <form id="filters" class="filters">
+        <label>
+          <span>Воронка</span>
+          <select id="category" name="categoryId" aria-label="Воронка продаж">
+            <option value="9">Тестовая воронка</option>
+          </select>
+        </label>
+        <label>
+          <span>Ответственный</span>
+          <select id="responsible" name="responsible" aria-label="Ответственный по сделкам">
+            <option value="all">Все доступные</option>
+            <option value="me">Только мои</option>
+          </select>
+        </label>
+        <label>
+          <span>Дата с</span>
+          <input id="date-from" name="from" type="date" required>
+        </label>
+        <label>
+          <span>Дата по</span>
+          <input id="date-to" name="to" type="date" required>
+        </label>
+        <button class="button button--primary" type="submit">Показать</button>
+        <button class="button button--ghost" id="refresh" type="button" title="Обновить данные" aria-label="Обновить данные">↻</button>
+      </form>
+    </section>
+
+    <div id="notice" class="notice" role="status" aria-live="polite">Загружаем данные CRM…</div>
+
+    <section class="metrics" aria-label="Ключевые показатели">
+      <article class="metric metric--ink">
+        <p>Открытые сделки</p>
+        <strong id="metric-open">—</strong>
+        <span>сумма в выбранном периоде</span>
+      </article>
+      <article class="metric metric--mint">
+        <p>Выиграно</p>
+        <strong id="metric-won">—</strong>
+        <span>сделок за период</span>
+      </article>
+      <article class="metric metric--coral">
+        <p>Средний чек</p>
+        <strong id="metric-average">—</strong>
+        <span>по выигранным сделкам</span>
+      </article>
+      <article class="metric metric--blue">
+        <p>Всего сделок</p>
+        <strong id="metric-count">—</strong>
+        <span>создано за период</span>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel panel--stages">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow eyebrow--dark">Сводка</p>
+            <h2>Стадии воронки</h2>
+          </div>
+          <span id="period-label" class="period-label">—</span>
+        </div>
+        <div id="stages" class="stage-list" aria-live="polite"></div>
+      </article>
+
+      <article class="panel panel--deals">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow eyebrow--dark">Последние изменения</p>
+            <h2>Последние сделки</h2>
+          </div>
+          <span class="period-label">до 15 записей</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Сделка</th>
+                <th>Стадия</th>
+                <th>Ответственный</th>
+                <th class="numeric">Сумма</th>
+              </tr>
+            </thead>
+            <tbody id="deals"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <span>Данные обновляются из CRM Битрикс24 от лица текущего пользователя.</span>
+      <span id="generated-at"></span>
+    </footer>
+  </main>
+</body>
+</html>
